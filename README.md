@@ -44,4 +44,6 @@ The goal of this project is to build ROS2 skills through real hardware nodes, wh
 
 ## Current state 
 - Written code for ir sensor and actuation nodes
-- need to store depenedencies in a file and create yaml file for parameters
+- need to store depenedencies in a file
+- Created YAML + launch file for parameter defaults
+- Need to alter speaker node to give speaker an output pin

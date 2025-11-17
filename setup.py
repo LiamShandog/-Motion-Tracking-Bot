@@ -10,12 +10,16 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        # install launch file
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+        # install config file
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='liam',
-    maintainer_email='liam@todo.todo',
-    description='TODO: Package description',
+    maintainer_email='liamshan13@gmail.com',
+    description='Motion tracking robot using IR sensor, servo, and speaker',
     license='TODO: License declaration',
     extras_require={
         'test': [

@@ -1,0 +1,15 @@
+ir_sensor_node:
+  ros__parameters:
+    ir_sensor_pin: 17
+
+
+speaker_node:
+  ros__parameters:
+    servo_pin: 18
+    audio_file: # Path to the audio file to be played
+    wave_count: 3
+    wave_delay: 0.3
+    servo_pulse_center: 1500
+    servo_pulse_left: 1200
+    servo_pulse_right: 1800
+    
