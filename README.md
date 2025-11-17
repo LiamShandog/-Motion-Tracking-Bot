@@ -40,3 +40,8 @@ The goal of this project is to build ROS2 skills through real hardware nodes, wh
  - Learn to control hardware with ROS
  - Work with Pi through GPIO
  - Build foundations in robotics
+
+
+## Current state 
+- Written code for ir sensor and actuation nodes
+- need to store depenedencies in a file and create yaml file for parameters

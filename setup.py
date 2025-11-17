@@ -24,7 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'ir_sensor_node = motion_tracking_bot.ir_sensor_node:main',
+            'ir_sensor_node = motion_tracking_bot.ir_sensor_node:main'
+            'speaker_node = motion_tracking_bot.speaker_node:main',
         ],
     },
 )
