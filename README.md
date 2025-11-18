@@ -42,6 +42,22 @@ The goal of this project is to build ROS2 skills through real hardware nodes, wh
  - Build foundations in robotics
 
 
+## Steps to Run
+### Install system packages (ROS, GPIO tools, audio)
+sudo apt update
+sudo apt install -y pigpio python3-pigpio alsa-utils ros-humble-rclpy ros-humble-std-msgs python3-colcon-common-extensions
+
+### Start pigpiod daemon
+sudo systemctl enable --now pigpiod
+
+### Install Python deps from requirements.txt
+pip install -r requirements.txt
+
+### Build and run
+colcon build
+source install/setup.bash
+ros2 run motion_tracking_bot ir_sensor_node speaker_node
+
 ## Current state 
 - Written code for ir sensor and actuation nodes
 - need to store depenedencies in a file

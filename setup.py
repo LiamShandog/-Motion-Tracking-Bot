@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'motion_tracking_bot'
 
@@ -15,7 +17,7 @@ setup(
         # install config file
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'pigpio>=1.78'],
     zip_safe=True,
     maintainer='liam',
     maintainer_email='liamshan13@gmail.com',
@@ -28,7 +30,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'ir_sensor_node = motion_tracking_bot.ir_sensor_node:main'
+            'ir_sensor_node = motion_tracking_bot.ir_sensor_node:main',
             'speaker_node = motion_tracking_bot.speaker_node:main',
         ],
     },
