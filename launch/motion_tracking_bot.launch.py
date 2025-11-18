@@ -14,7 +14,7 @@ def generate_launch_description():
         'motion_tracking_bot.yaml'
     )
 
-    ir_node = Node(
+    ir_sensor_node = Node(
         package=pkg_name,
         executable='ir_sensor_node',
         name='ir_sensor_node',
@@ -22,7 +22,7 @@ def generate_launch_description():
         output='screen'
     )
 
-    motion_node = Node(
+    speaker_node = Node(
         package=pkg_name,
         executable='speaker_node',
         name='speaker_node',
@@ -31,6 +31,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        ir_node,
+        ir_sensor_node,
         speaker_node,
     ])

@@ -47,6 +47,10 @@ The goal of this project is to build ROS2 skills through real hardware nodes, wh
 sudo apt update
 sudo apt install -y pigpio python3-pigpio alsa-utils ros-humble-rclpy ros-humble-std-msgs python3-colcon-common-extensions
 
+### Check files
+- Add sound input
+- Ensure sound will work
+
 ### Start pigpiod daemon
 sudo systemctl enable --now pigpiod
 
