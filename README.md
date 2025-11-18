@@ -58,6 +58,12 @@ colcon build
 source install/setup.bash
 ros2 run motion_tracking_bot ir_sensor_node speaker_node
 
+### View rqt graph
+- Install: sudo apt install python3-rqt-graph
+- start nodes (via launch file)
+- Open second terminal, source the build
+- run: rqt_graph
+
 ## To Do
 - add sound input to yaml / speaker node files
 - See if aplay works, may need to alter speaker node to give speaker an output pin
