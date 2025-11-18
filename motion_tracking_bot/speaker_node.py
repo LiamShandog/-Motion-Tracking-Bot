@@ -61,24 +61,23 @@ class SpeakerNode(Node):
                 self.get_logger().info('Motion detected! Activating speaker and servo.')
                 try:
                     self.play_sound()
-                    self.wave_hand()
+                    self.wave_servo()
                 finally:
                     self.is_handling_motion = False
 
-        # Play sound using aplay
-        def play_sound(self):
-            if not self.sound_file:
-                self.get_logger().warn('No sound file configured, skipping audio.')
-                return
+    def play_sound(self):
+        if not self.audio_file:
+            self.get_logger().warn('No sound file configured, skipping audio.')
+            return
 
-            self.get_logger().info(f'Playing sound: {self.sound_file}')
-            try:
-                subprocess.run(
-                    ['aplay', self.sound_file],
-                    check=False
-                )
-            except Exception as e:
-                self.get_logger().error(f'Error while playing sound: {e}')
+        self.get_logger().info(f'Playing sound: {self.audio_file}')
+        try:
+            subprocess.run(
+                ['aplay', self.audio_file],
+                check=False
+            )
+        except Exception as e:
+            self.get_logger().error(f'Error while playing sound: {e}')
 
     # Move servo to wave hand
     def wave_servo(self):
@@ -111,7 +110,7 @@ class SpeakerNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = MotionResponder()
+    node = SpeakerNode()
 
     try:
         rclpy.spin(node)
