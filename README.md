@@ -47,10 +47,6 @@ The goal of this project is to build ROS2 skills through real hardware nodes, wh
 sudo apt update
 sudo apt install -y pigpio python3-pigpio alsa-utils ros-humble-rclpy ros-humble-std-msgs python3-colcon-common-extensions
 
-### Check files
-- Add sound input
-- Ensure sound will work
-
 ### Start pigpiod daemon
 sudo systemctl enable --now pigpiod
 
@@ -62,8 +58,6 @@ colcon build
 source install/setup.bash
 ros2 run motion_tracking_bot ir_sensor_node speaker_node
 
-## Current state 
-- Written code for ir sensor and actuation nodes
-- need to store depenedencies in a file
-- Created YAML + launch file for parameter defaults
-- Need to alter speaker node to give speaker an output pin
+## To Do
+- add sound input to yaml / speaker node files
+- See if aplay works, may need to alter speaker node to give speaker an output pin
