@@ -32,6 +32,8 @@ setup(
         'console_scripts': [
             'ir_sensor_node = motion_tracking_bot.ir_sensor_node:main',
             'speaker_node = motion_tracking_bot.speaker_node:main',
+            'ir_sensor_node_test = motion_tracking_bot.test_nodes.ir_sensor_node_test:main',
+            'speaker_node_test = motion_tracking_bot.test_nodes.speaker_node_test:main',
         ],
     },
 )
