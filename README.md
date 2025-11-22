@@ -156,3 +156,4 @@ sudo usermod -aG gpio $USER
 To do:
 - Set up test nodes to run on laptop (ie. ir_sensor_sim speaker_node_sim) that set fake values and don't depends on pi depencies
 - Set up project in Docker container, to be compatible on 64-bit pi OS
+- Was about to clone repo to pi
