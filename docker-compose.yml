@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # ROS 2 motion tracking bot service
+  motion_tracking_bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+    image: motion_tracking_bot:pi5
+    container_name: motion_tracking_bot
+    
+    # Environment
+    environment:
+      - ROS_DOMAIN_ID=0
+      - ROS_LOCALHOST_ONLY=0
+      - SKIP_PIGPIOD_CHECK=0
+    
+    # Network
+    network_mode: host
+    
+    # Hardware access (required for GPIO and pigpio)
+    privileged: true
+    devices:
+      - /dev/mem:/dev/mem
+      - /dev/gpiomem:/dev/gpiomem
+    
+    # Volumes for development and logs
+    volumes:
+      - .:/workspace/src/motion_tracking_bot
+      - /dev:/dev
+      - ros_logs:/root/.ros
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Command (can be overridden)
+    command: ros2 launch motion_tracking_bot motion_tracking_bot.launch.py
+
+  # Optional: pigpiod daemon (if not running on host)
+  pigpiod:
+    image: balena/rpi-raspbian:latest
+    container_name: pigpiod
+    privileged: true
+    network_mode: host
+    devices:
+      - /dev/mem:/dev/mem
+      - /dev/gpiomem:/dev/gpiomem
+    command: pigpiod -s 0
+    restart: unless-stopped
+    depends_on:
+      - motion_tracking_bot
+
+volumes:
+  ros_logs:
