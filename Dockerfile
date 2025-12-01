@@ -5,18 +5,13 @@ FROM ros:humble-ros-base
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ROS_DISTRO=humble
 
-# Enable universe repo (required for pigpio) and install system dependencies
+# Install system dependencies (pigpio daemon will be provided on the host Pi)
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends software-properties-common && \
-    add-apt-repository universe && \
-    apt-get update && \
     apt-get install -y --no-install-recommends \
       build-essential \
       python3-colcon-common-extensions \
       python3-rosdep \
       python3-pip \
-      pigpio \
-      python3-pigpio \
       alsa-utils \
       git \
       vim && \
