@@ -23,8 +23,9 @@ WORKDIR /workspace
 # Copy the entire package (not just the module)
 COPY . /workspace/src/motion_tracking_bot
 
-# Install rosdep and resolve dependencies
-RUN rosdep init && rosdep update && \
+# Install rosdep and resolve dependencies (skip init if already done in base image)
+RUN if [ ! -f /etc/ros/rosdep/sources.list.d/20-default.list ]; then rosdep init; fi && \
+    rosdep update && \
     rosdep install --from-paths /workspace/src --ignore-src -r -y
 
 # Install Python dependencies from requirements.txt

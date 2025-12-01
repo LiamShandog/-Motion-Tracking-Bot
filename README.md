@@ -53,6 +53,8 @@ The goal is to build ROS2 skills through real hardware nodes, while keeping elec
 
 ### Run the system
 
+NOTE: Have to run pigpio daemon on pi before running nodes
+
 **Option A: Launch both nodes together**
 ```bash
 ros2 launch motion_tracking_bot motion_tracking_bot.launch.py
