@@ -51,41 +51,7 @@ The goal is to build ROS2 skills through real hardware nodes, while keeping elec
   - `servo_pulse_left` (default: 1200) — left pulse
   - `servo_pulse_right` (default: 1800) — right pulse
 
-## Installation on Raspberry Pi
-
-### 1. Install system packages
-```bash
-sudo apt update
-sudo apt install -y pigpio python3-pigpio alsa-utils \
-  python3-colcon-common-extensions python3-rosdep
-```
-
-If you haven't installed ROS 2 on the Pi yet, follow the [official ROS 2 install guide](https://docs.ros.org/en/humble/Installation.html) for Raspberry Pi OS.
-
-### 2. Enable pigpiod daemon (required for GPIO control)
-```bash
-sudo systemctl enable --now pigpiod
-sudo systemctl status pigpiod  # verify it's running
-```
-
-### 3. Clone and build the workspace
-```bash
-cd ~/ros2_ws/src
-git clone <this-repo-url>
-cd ~/ros2_ws
-colcon build
-source install/setup.bash
-```
-
-### 4. Configure the audio file path
-Edit `config/motion_tracking_bot.yaml` and set the path to your audio file:
-```yaml
-speaker_node:
-  ros__parameters:
-    audio_file: /home/pi/sounds/greeting.wav
-```
-
-### 5. Run the system
+### Run the system
 
 **Option A: Launch both nodes together**
 ```bash
