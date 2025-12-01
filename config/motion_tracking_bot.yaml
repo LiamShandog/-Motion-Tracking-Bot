@@ -6,7 +6,7 @@ ir_sensor_node:
 speaker_node:
   ros__parameters:
     servo_pin: 18
-    audio_file: # Path to the audio file to be played
+    audio_file: /home/liam/Downloads/M1F1-Alaw-AFsp.wav
     wave_count: 3
     wave_delay: 0.3
     servo_pulse_center: 1500
