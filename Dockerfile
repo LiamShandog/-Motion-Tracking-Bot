@@ -5,8 +5,11 @@ FROM ros:humble-ros-base
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ROS_DISTRO=humble
 
-# Install system dependencies
+# Enable universe repo (required for pigpio) and install system dependencies
 RUN apt-get update && \
+    apt-get install -y --no-install-recommends software-properties-common && \
+    add-apt-repository universe && \
+    apt-get update && \
     apt-get install -y --no-install-recommends \
       build-essential \
       python3-colcon-common-extensions \
