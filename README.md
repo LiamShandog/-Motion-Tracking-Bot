@@ -53,7 +53,15 @@ The goal is to build ROS2 skills through real hardware nodes, while keeping elec
 
 ### Run the system
 
-NOTE: Have to run pigpio daemon on pi before running nodes
+SSH to pi:
+ssh liam@192.168.2.89
+
+
+
+### Run in Docker on Raspberry Pi
+
+
+```
 
 **Option A: Launch both nodes together**
 ```bash
